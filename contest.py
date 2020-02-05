@@ -1,6 +1,7 @@
 import requests
 import os
 from bs4 import BeautifulSoup as BS
+import sys
 
 def get_html(url):
     return requests.get(url).content
@@ -102,7 +103,7 @@ class Contest:
                     case += 1
     
 def start():
-    contest_id = "1296"
+    contest_id = sys.argv[1]
     obj = Contest(contest_id)
     obj.find_problems()
     obj.make_folders()
